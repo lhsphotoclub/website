@@ -1,0 +1,53 @@
+.body {
+    display: grid;
+    grid-template-columns: [head] 1fr [body] 9fr [end];
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.head {
+    grid-column: head / body;
+    color: black;
+    border-right: solid 1px black;
+
+    .logo {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+        background-color: aqua;
+        border-bottom: solid 1px black;
+
+        .text {
+            font-weight: 700;
+            position: absolute;
+            line-height: 0.9;
+            top: calc(50% - 3rem * 0.9);
+            bottom: 0;
+            left: 5px;
+            right: 0;
+            font-size: 2rem;
+        }
+    }
+
+    .links {
+        font-weight: 700;
+        list-style-type: none;
+        padding: 0 5px;
+        li {
+            margin: 5px 0;
+            padding: 0;
+            border-bottom: solid 1px gray;
+        }
+    }
+}
+
+.content {
+    grid-column: body / end;
+    overflow-y: scroll;
+}
+
+.footer {
+    border-top: solid 1px black;
+    padding: 5px;
+}
