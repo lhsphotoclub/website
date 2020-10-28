@@ -45,6 +45,11 @@
 .content {
     grid-column: body / end;
     overflow-y: scroll;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
 }
 
 .footer {

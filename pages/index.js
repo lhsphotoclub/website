@@ -24,7 +24,7 @@ export default function Home() {
     <Layout title="Home">
       {
         "fields" in entry &&  
-        <>
+        <div className={styles.twoCol}>
           <img src={entry.fields.mainImage.fields.file.url}/>
           {
             unified()
@@ -32,7 +32,7 @@ export default function Home() {
             .use(remark2react)
             .processSync(entry.fields.text).result
           }
-        </>
+        </div>
       }
     </Layout>
   )

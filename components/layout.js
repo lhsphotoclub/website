@@ -1,6 +1,7 @@
 import "react"
 import styles from "../styles/Layout.module.scss"
 import Head from 'next/head'
+import Link from 'next/link'
 
 const Layout = (props) => {
     return (
@@ -17,11 +18,11 @@ const Layout = (props) => {
                         </div>
                     </div>
                     <ul className={styles.links}>
-                        <li>ABOUT</li>
-                        <li>MEMBERS</li>
-                        <li>ALUMNI</li>
-                        <li>EVENTS</li>
-                        <li>RESOURCES</li>
+                        <li><Link href="/">ABOUT</Link></li>
+                        <li><Link href="/members">MEMBERS</Link></li>
+                        <li><Link href="/alumni">ALUMNI</Link></li>
+                        <li><Link href="/events">EVENTS</Link></li>
+                        <li><Link href="/resources">RESOURCES</Link></li>
                     </ul>
                 </div>
                 <div className={styles.content}>
