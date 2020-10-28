@@ -1,5 +1,25 @@
-.two-col {
+.twocol {
   height:100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr );
+  grid-template-columns: repeat(2, 1fr);
+  
+  div:first-child {
+    border-right: solid 1px black;
+  }
+}
+
+.mainImage {
+  width: 100%;
+  max-height: 50vmax;
+  object-fit: cover;
+}
+
+.content {
+  padding: 0 10px;
+
+  h1 {
+    border-bottom: solid 1px gray;
+    margin: 5px 0;
+    padding: 5px 0;
+  }
 }

@@ -24,14 +24,21 @@ export default function Home() {
     <Layout title="Home">
       {
         "fields" in entry &&  
-        <div className={styles.twoCol}>
-          <img src={entry.fields.mainImage.fields.file.url}/>
-          {
-            unified()
-            .use(parse)
-            .use(remark2react)
-            .processSync(entry.fields.text).result
-          }
+        <div className={styles.twocol}>
+          <div>
+            <img className={styles.mainImage} src={entry.fields.mainImage.fields.file.url}/>
+            <div className={styles.content}>
+              {
+                unified()
+                .use(parse)
+                .use(remark2react)
+                .processSync(entry.fields.text).result
+              }
+            </div>
+          </div>
+          <div>
+            <h1>Insta Feed</h1>
+          </div>
         </div>
       }
     </Layout>
