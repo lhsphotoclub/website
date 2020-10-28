@@ -1,5 +1,6 @@
 import Layout from '../components/layout'
 import { fetchEntry } from '../components/client'
+import Lightbox from '../components/lightbox'
 import { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.scss'
 
@@ -36,8 +37,10 @@ export default function Home() {
               }
             </div>
           </div>
-          <div>
-            <h1>Insta Feed</h1>
+          <div className={styles.content}>
+            <h1>Photos</h1>
+            <a className={styles.instalink} href="https://instagram.com/lhs.photoclub">From our Instagram</a>
+            <Lightbox imageList={entry.fields.instagramFeed} className={styles.lb}/>
           </div>
         </div>
       }

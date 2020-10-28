@@ -12,6 +12,7 @@
   width: 100%;
   max-height: 50vmax;
   object-fit: cover;
+  border-bottom: solid black 1px;
 }
 
 .content {
@@ -22,4 +23,8 @@
     margin: 5px 0;
     padding: 5px 0;
   }
+}
+
+.instalink {
+  padding: 0 5px;
 }

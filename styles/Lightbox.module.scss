@@ -1,0 +1,11 @@
+.lightgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-rows: repeat(3, 150px);
+
+    div {
+        height: 100%;
+        width: 100%;
+        border: none;
+    }
+}
