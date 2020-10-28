@@ -15,8 +15,8 @@ export async function fetchEntries(type) {
 }
  
 export async function fetchEntry(id) {
-    const entries = await client.getEntry(id)
-    if (entries.items) return entries.items
+    const entry = await client.getEntry(id)
+    if (entry) return entry
     console.log(`Error getting Entries for ${contentType.name}.`)
 }
 
