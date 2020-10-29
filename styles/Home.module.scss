@@ -1,10 +1,15 @@
 .twocol {
-  height: calc(100vh - 1em - 12px);
+  height: calc(100vh - 1.33em - 11px);
   display: grid;
+  overflow-y: hidden;
   grid-template-columns: repeat(2, 1fr);
   
   > div:first-child {
     border-right: solid 1px black;
+  }
+
+  > div {
+    overflow-y: scroll;
   }
 }
 

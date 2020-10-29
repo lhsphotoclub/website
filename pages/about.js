@@ -1,6 +1,5 @@
 import Layout from '../components/layout'
 import { fetchEntry } from '../components/client'
-import Lightbox from '../components/lightbox'
 import { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.scss'
 
@@ -20,16 +19,14 @@ export default function About() {
   }, [])
 
   return (
-    <Layout title="Home">
+    <Layout title="Home" twocol={true}>
       {
         "fields" in entry &&  
-        <div className={styles.twocol}>
-          <div>
-            <div className={styles.aboutcontent}>
-              {
-                documentToReactComponents(entry.fields.text)
-              }
-            </div>
+        <div className={`${styles.twocol}`}>
+          <div className={styles.aboutcontent}>
+            {
+              documentToReactComponents(entry.fields.text)
+            }
           </div>
           <div>
            <img className={styles.aboutimage} src={entry.fields.image.fields.file.url}/>

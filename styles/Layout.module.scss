@@ -50,6 +50,10 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+
+    &.twocol {
+        overflow-y: hidden;
+    }
 }
 
 .footer {

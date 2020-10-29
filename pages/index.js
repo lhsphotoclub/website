@@ -22,10 +22,10 @@ export default function Home() {
   }, [])
 
   return (
-    <Layout title="Home">
+    <Layout title="Home" twocol={true}>
       {
         "fields" in entry &&  
-        <div className={styles.twocol}>
+        <div className={`${styles.twocol}`}>
           <div>
             <img className={styles.mainImage} src={entry.fields.mainImage.fields.file.url}/>
             <div className={styles.content}>
