@@ -2,7 +2,7 @@ import Layout from '../components/layout'
 import { fetchEntries } from '../components/client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-//import styles from '../styles/Members.module.scss'
+import styles from '../styles/Members.module.scss'
 
 export default function Members() {
     const [ members, setMembers ] = useState([])
@@ -20,16 +20,19 @@ export default function Members() {
         <Layout title="Members">
             {
                 members.length > 0 &&
-                <>
+                <div className={styles.content}>
                     <h1>Club Leaders</h1>
-                    <div>
-                        { members.forEach((member) => {
+                    <div className={styles.grid}>
+                        { members.map((member) => {
                             if (member.fields.isLeader) {
+                                console.log(member)
                                 return (
-                                    <Link href={`/members/${member.fields.slug}`} style={{
-                                        backgroundImage: `url(${member.fields.thumbnail.fields.file.url})`
-                                    }}>
-                                        <p>{member.fields.name}</p>
+                                    <Link key={member.sys.id} href={`/members/${member.fields.slug}`}>
+                                        <div className={styles.item} style={{
+                                            backgroundImage: `url(${member.fields.thumbnail.fields.file.url})`
+                                        }}>
+                                            <p>{member.fields.name}</p>
+                                        </div>
                                     </Link>
                                 )
                             } else {
@@ -38,7 +41,27 @@ export default function Members() {
                         })}
                     </div>
                     <h1>Members</h1>
-                </>
+                    <div className={styles.grid}>
+                        { members.map((member) => {
+                            if (!member.fields.isLeader) {
+                                console.log(member)
+                                return (
+                                    <Link key={member.sys.id} href={`/members/${member.fields.slug}`}>
+                                        <div className={styles.item}>
+                                        <div style={{
+                                            backgroundImage: `url(${member.fields.thumbnail.fields.file.url})`
+                                        }}>
+                                            <p>{member.fields.name}</p>
+                                        </div>
+                                        </div>
+                                    </Link>
+                                )
+                            } else {
+                                return null
+                            }
+                        })}
+                    </div>
+                </div>
             }
         </Layout>
     )

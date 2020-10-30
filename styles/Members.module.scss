@@ -1,0 +1,39 @@
+.content {
+    padding: 10px;
+
+    h1 {
+        border-bottom: solid gray 1px;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 0.5fr));
+
+    .item {
+        color: white;
+        background-position: center;
+        background-size: cover;
+        height: 100px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: transform 0.2s;
+        overflow: hidden;
+        
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &:hover {
+            div {
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+    }
+}
