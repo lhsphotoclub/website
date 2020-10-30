@@ -8,25 +8,30 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 0.5fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 0.5fr));
 
     .item {
         color: white;
-        background-position: center;
-        background-size: cover;
-        height: 100px;
+        height: 150px;
         font-weight: 600;
         display: flex;
         align-items: center;
         justify-content: center;
 
-        transition: transform 0.2s;
         overflow: hidden;
         
         div {
+            height: 100%;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.2s;
+
+            p {
+                line-height: 0.95;
+                text-align: center;
+            }
         }
 
         &:hover {

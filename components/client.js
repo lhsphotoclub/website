@@ -6,10 +6,14 @@ const client = require("contentful").createClient({
   accessToken: accessToken
 })
 
-export async function fetchEntries(type) {
-    const entries = await client.getEntries({
-        'content_type': type
-    })
+export async function fetchEntries(type, slug) {
+    const exportQuery = {'content_type': type}
+    console.log(slug)
+    if (slug !== undefined) {
+        exportQuery['fields.slug'] = slug
+    }
+    console.log(exportQuery)
+    const entries = await client.getEntries(exportQuery)
     if (entries.items) return entries.items
     console.log(`Error getting Entries for ${contentType.name}.`)
 }

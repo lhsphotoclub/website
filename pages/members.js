@@ -6,6 +6,7 @@ import styles from '../styles/Members.module.scss'
 
 export default function Members() {
     const [ members, setMembers ] = useState([])
+    
     useEffect(() => {
         async function getEntries() {
             const entries = await fetchEntries('member')
@@ -28,10 +29,14 @@ export default function Members() {
                                 console.log(member)
                                 return (
                                     <Link key={member.sys.id} href={`/members/${member.fields.slug}`}>
-                                        <div className={styles.item} style={{
-                                            backgroundImage: `url(${member.fields.thumbnail.fields.file.url})`
+                                        <div className={styles.item}>
+                                        <div style={{
+                                            background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${member.fields.thumbnail.fields.file.url})`,
+                                            backgroundPosition: 'center',
+                                            backgroundSize: 'cover'
                                         }}>
                                             <p>{member.fields.name}</p>
+                                        </div>
                                         </div>
                                     </Link>
                                 )
@@ -49,7 +54,8 @@ export default function Members() {
                                     <Link key={member.sys.id} href={`/members/${member.fields.slug}`}>
                                         <div className={styles.item}>
                                         <div style={{
-                                            backgroundImage: `url(${member.fields.thumbnail.fields.file.url})`
+                                            background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) center center / cover, url(${member.fields.thumbnail.fields.file.url}) center center / cover`,
+                                            
                                         }}>
                                             <p>{member.fields.name}</p>
                                         </div>
