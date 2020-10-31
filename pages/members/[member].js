@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import styles from '../../styles/Member.module.scss'
-import Lightbox from 'react-image-lightbox'
+import Lightbox from '../../components/lightbox'
 
 export default function MemberDetail() {
     const [member, setMember] = useState({}) 
