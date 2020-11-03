@@ -2,6 +2,8 @@ import Layout from '../components/layout'
 import { fetchEntries } from '../components/client'
 import { useState, useEffect } from 'react'
 
+import styles from '../styles/Events.module.scss'
+
 const DateStringObject = (props) => {
     const calcDate = new Date(props.dateString)
     
@@ -42,19 +44,19 @@ export default function Events() {
     
     return (
         <Layout>
-            
+            <div className={styles.content}>
                 { afterEvents.length > 0 &&
                     <>
                         <h1>Upcoming Events</h1>
-                        <div>
+                        <div className={styles.grid}>
                             {
                             afterEvents.map((e) => (
-                                <div key={e.sys.id}>
+                                <div className={styles.item} key={e.sys.id}>
+                                    <img src={e.fields.thumbnail.fields.file.url} />
                                     <h2>{e.fields.title}</h2>
                                     <h3>
                                         <DateStringObject dateString={e.fields.date}/>
                                     </h3>
-                                    <img src={e.fields.thumbnail.fields.file.url} />
                                 </div>
                             ))
                             }
@@ -63,18 +65,19 @@ export default function Events() {
                 }
             
             <h1>Past Events</h1>
-            <div>
+            <div className={styles.grid}>
                 {
                     beforeEvents.map((e) => (
-                        <div key={e.sys.id}>
+                        <div key={e.sys.id} className={styles.item}>
+                            <img src={e.fields.thumbnail.fields.file.url} />
                             <h2>{e.fields.title}</h2>
                             <h3>
                                 <DateStringObject dateString={e.fields.date}/>
                             </h3>
-                            <img src={e.fields.thumbnail.fields.file.url} />
                         </div>
                     ))
                 }</div>
+            </div>
         </Layout>
     )
 }
